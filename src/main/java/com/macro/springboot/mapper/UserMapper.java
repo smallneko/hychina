@@ -10,7 +10,7 @@ import java.util.List;
  * 继承通用Mapper获取CURD方法
  */
 public interface UserMapper extends Mapper<User> {
-	@Select("select * from [User] where username = #{username}")
+	@Select("select * from [User] where uuid = #{uuid}")
 	User findUserByUuid(String uuid);
 
 	@Select("select * from [User] where 1=1")

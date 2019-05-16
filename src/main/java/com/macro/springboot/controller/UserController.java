@@ -18,29 +18,13 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("list")
-	public List<User> list(User user) {
-		return userService.list(user);
-	}
-
-	@RequestMapping("get")
-	public User get(User user) {
-		return userService.get(user);
-	}
-
-	@RequestMapping("update")
-	public int update(User user) {
-		return userService.update(user);
-	}
-
-	@RequestMapping("save")
-	public int save(User user) {
-		return userService.save(user);
-	}
-
-	@RequestMapping("delete")
-	public int delete(User user) {
-		return userService.delete(user);
+	@RequestMapping(value = "findAllUser",method = RequestMethod.GET)
+	public R findAllUser(){
+		try {
+			return R.isOk().data(userService.findAllUsers());
+		}catch (Exception e){
+			return R.isFail(e);
+		}
 	}
 
 	@RequestMapping(value = "findUserByUuid/{uuid}",method = RequestMethod.GET)
