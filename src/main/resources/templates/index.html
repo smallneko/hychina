@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>测试</title>
+        <script type="text/javascript" src="../static/jquery-3.4.0.js"></script>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>uuid</th>
+                    <th>telephone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user:${userList}">
+                    <td th:text="${user.uuid}">uuid</td>
+                    <td th:text="${user.telephone}">telephone</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
